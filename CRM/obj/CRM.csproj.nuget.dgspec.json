@@ -177,7 +177,11 @@
         "frameworks": {
           "net8.0": {
             "targetAlias": "net8.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\beksu\\source\\repos\\CRM\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\beksu\\source\\repos\\CRM\\DAL\\DAL.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

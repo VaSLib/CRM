@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace DAL.Repositories.Interfaces;
 
-namespace DAL.Repositories.Interfaces
+public interface IBaseRepository<TEntity>
 {
-    internal class IBaseRepositories
-    {
-    }
+    IQueryable<TEntity> GetAll();
+
+    Task<TEntity> CreateAsync(TEntity entity);
+
+    Task<TEntity> UpdateAsync(TEntity entity);
+
+    Task<TEntity> RemoveAsync(TEntity entity);
 }
+

@@ -4,7 +4,6 @@ namespace DAL.Entity;
 
 public class Sale
 {
-    [Key]
     [Required]
     public int Id { get; set; }
 

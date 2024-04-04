@@ -24,17 +24,16 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Entity.Contact", b =>
                 {
-                    b.Property<int?>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("MarketerId")
-                        .IsRequired()
+                    b.Property<int>("MarketerId")
                         .HasColumnType("int");
 
                     b.Property<string>("MiddleName")
@@ -54,8 +53,7 @@ namespace DAL.Migrations
                     b.Property<string>("Surname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("Update")
-                        .IsRequired()
+                    b.Property<DateTime>("Update")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
@@ -76,7 +74,7 @@ namespace DAL.Migrations
                     b.Property<int>("ContactId")
                         .HasColumnType("int");
 
-                    b.Property<int>("SalerId")
+                    b.Property<int?>("SalerId")
                         .HasColumnType("int");
 
                     b.Property<int>("Status")
@@ -170,8 +168,7 @@ namespace DAL.Migrations
                     b.HasOne("DAL.Entity.User", "SalerUser")
                         .WithMany("Leads")
                         .HasForeignKey("SalerId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Restrict);
 
                     b.Navigation("Contact");
 

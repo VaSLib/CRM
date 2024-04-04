@@ -5,7 +5,6 @@ namespace DAL.Entity;
 
 public class User
 {
-    [Key]
     [Required]
     public int Id { get; set; }
 

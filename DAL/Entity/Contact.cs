@@ -11,7 +11,7 @@ public class Contact
     [Required]
     public int MarketerId { get; set; }
 
-    public User MarketerUser { get; set; }
+    public User? MarketerUser { get; set; }
 
     [Required]
     public string Name { get; set; }

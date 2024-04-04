@@ -1,4 +1,5 @@
 using DAL;
+using DAL.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,8 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<ApplicationDbContext>(opts =>
-    opts.UseSqlServer("Server=.; Database=CRM; Trusted_Connection=true;Encrypt=Optional"));
+
+builder.Services.AddDataAccessLayer(builder.Configuration);
 
 var app = builder.Build();
 

@@ -5,7 +5,6 @@ namespace DAL.Entity;
 
 public class Lead
 {
-    [Key]
     [Required]
     public int Id { get; set; }
 
@@ -13,7 +12,7 @@ public class Lead
     public int ContactId { get; set; }
     public Contact? Contact { get; set; }
 
-    public int SalerId { get; set; }
+    public int? SalerId { get; set; }
     public User? SalerUser { get; set; }
 
     [Required]

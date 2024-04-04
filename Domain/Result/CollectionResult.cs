@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Domain.Result;
 
-namespace Domain.Result
+public class CollectionResult<T> : BaseResult<IEnumerable<T>>
 {
-    internal class CollectionResult
-    {
-    }
+    public int Count { get; set; }
 }
+
