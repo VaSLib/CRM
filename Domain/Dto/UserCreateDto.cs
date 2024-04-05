@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DAL.Enum;
 
-namespace Domain.Dto
-{
-    internal class UserCreateDto
-    {
-    }
-}
+namespace Domain.Dto;
+
+public record UserCreateDto (string? FullName, string Email, string Password,Roles Roles);

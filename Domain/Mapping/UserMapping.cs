@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using DAL.Entity;
+using Domain.Dto;
 
-namespace Domain.Mapping
+namespace Domain.Mapping;
+
+public class UserMapping:Profile
 {
-    internal class UserMapping
+    public UserMapping()
     {
+        CreateMap<User, UserCreateDto>().ReverseMap();
+        CreateMap<User, UserDto>().ReverseMap();
     }
 }

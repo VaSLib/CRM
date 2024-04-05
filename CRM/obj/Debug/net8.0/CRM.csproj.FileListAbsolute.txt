@@ -139,3 +139,5 @@ C:\Users\beksu\source\repos\CRM\CRM\bin\Debug\net8.0\DAL.pdb
 C:\Users\beksu\source\repos\CRM\CRM\bin\Debug\net8.0\Domain.dll
 C:\Users\beksu\source\repos\CRM\CRM\bin\Debug\net8.0\Domain.pdb
 C:\Users\beksu\source\repos\CRM\CRM\obj\Debug\net8.0\CRM.sourcelink.json
+C:\Users\beksu\source\repos\CRM\CRM\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\beksu\source\repos\CRM\CRM\bin\Debug\net8.0\BCrypt.Net-Next.dll
