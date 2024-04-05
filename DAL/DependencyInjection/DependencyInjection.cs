@@ -15,7 +15,6 @@ public static class DependencyInjection
                  opts.UseSqlServer("Server=.; Database=CRM; Trusted_Connection=true;Encrypt=Optional"));
 
         services.InitRepositories();
-        services.AddAuthentication().AddCookie("cookie");
 
     }
 
