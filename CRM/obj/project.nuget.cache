@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "uD4mXmZe11toPcXlbXwz1HE9J6d6Z/PXhn/ogK54c/X2EASAuBBAuZg9PNtIW9ZBfsthiA6OD26b6Mku8zeE0g==",
+  "dgSpecHash": "HJAB35olC0L8dgzcIJ+5xUIRdPVVdLGtF+/dv/IGFhv0S9U7q+U6oUbHRDn+wtZyl5Kk6chdDMxJge5ZRq3kJg==",
   "success": true,
   "projectFilePath": "C:\\Users\\beksu\\source\\repos\\CRM\\CRM\\CRM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\beksu\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\beksu\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\beksu\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\beksu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\beksu\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\beksu\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\beksu\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

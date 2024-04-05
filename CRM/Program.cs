@@ -1,6 +1,5 @@
-using DAL;
 using DAL.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
+using Domain.DependencyInjection;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +9,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDataAccessLayer(builder.Configuration);
+builder.Services.AddServiceDomain(builder.Configuration);
+
 builder.Services.AddAuthentication().AddCookie("cookie");
 
 

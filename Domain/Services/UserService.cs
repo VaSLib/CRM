@@ -8,6 +8,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using DAL.Enum;
+using Domain.Interfaces.Service;
 
 namespace Domain.Services;
 
@@ -133,7 +134,7 @@ public class UserService : IUserService
         }
     }
 
-    public async Task<CollectionResult<UserDto>> GetAllUsersAsync(int userId)
+    public async Task<CollectionResult<UserDto>> GetAllUsersAsync()
     {
         UserDto[] users;
         try
@@ -290,11 +291,20 @@ public class UserService : IUserService
         }
     }
 
-    public async Task<BaseResult<UserDto>> ChangeUserRoleAsync(int userId, string oldPassword, string newPassword)
+    public async Task<BaseResult<UserDto>> ChangeUserPasswordAsync(string oldPassword, string newPassword)
     {
         try
         {
-            var user = _userRepository.GetAll().FirstOrDefault(u => u.Id == userId);
+            int? userIdValue = null;
+
+            var claim = _httpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+            if (claim != null && int.TryParse(claim.Value, out int userId))
+            {
+                userIdValue = userId;
+            }
+
+            var user = _userRepository.GetAll().FirstOrDefault(u => u.Id == userIdValue);
+
             if (user == null)
             {
                 return new BaseResult<UserDto>()
