@@ -2,13 +2,10 @@
 using DAL.Entity;
 using DAL.Enum;
 using DAL.Repositories.Interfaces;
-using Domain.Contacts;
 using Domain.Contracts.Contact;
-using Domain.Contracts.User;
 using Domain.Result;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 
 namespace Domain.Services;

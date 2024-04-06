@@ -1,8 +1,10 @@
 ﻿using DAL.Enum;
 using Domain.Contracts.User;
 using Domain.Interfaces.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace CRM.Controllers;
 
@@ -15,8 +17,8 @@ public class UserController : ControllerBase
     public UserController(IUserService userService)
     {
         _userService = userService;
-    }
-
+    }   
+    [AllowAnonymous]
     [HttpPost("login")]
     public async Task<IActionResult> LoginUser(UserLoginDto userLoginDto)
     {
@@ -27,7 +29,7 @@ public class UserController : ControllerBase
         }
         return BadRequest(result);
     }
-
+    [Authorize(Roles = nameof(Roles.Admin))]
     [HttpPost("register")]
     public async Task<IActionResult> CreateUserAsync(UserCreateDto userCreateDto)
     {
@@ -39,6 +41,7 @@ public class UserController : ControllerBase
         return BadRequest(result);
     }
 
+    [Authorize(Roles = nameof(Roles.Admin))]
     [HttpDelete("{userId}")]
     public async Task<IActionResult> DeleteUserByIdAsync(int userId)
     {
@@ -61,6 +64,7 @@ public class UserController : ControllerBase
         return NotFound(result);
     }
 
+    [Authorize(Roles = nameof(Roles.Admin))]
     [HttpGet]
     public async Task<IActionResult> GetAllUsers()
     {
@@ -72,6 +76,7 @@ public class UserController : ControllerBase
         return NotFound(result);
     }
 
+    [Authorize(Roles = nameof(Roles.Admin))]
     [HttpPost("{userId}/block")]
     public async Task<IActionResult> BlockUserAsync(int userId)
     {
@@ -83,6 +88,7 @@ public class UserController : ControllerBase
         return BadRequest(result);
     }
 
+    [Authorize(Roles = nameof(Roles.Admin))]
     [HttpPost("{userId}/unblock")]
     public async Task<IActionResult> UnblockUserAsync(int userId)
     {
@@ -94,6 +100,7 @@ public class UserController : ControllerBase
         return BadRequest(result);
     }
 
+    [Authorize(Roles = nameof(Roles.Admin))]
     [HttpPost("{userId}/change-role")]
     public async Task<IActionResult> ChangeUserRoleAsync(int userId, Roles role)
     {

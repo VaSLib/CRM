@@ -2,6 +2,7 @@
 using Domain.Contracts.Contact;
 using Domain.Result;
 using Domain.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRM.Controllers;
@@ -17,6 +18,7 @@ public class ContactController : ControllerBase
         _contactService = contactService;
     }
 
+    [Authorize(Roles = $"{nameof(Roles.Admin)}, {nameof(Roles.Marketing)}")]
     [HttpGet]
     public async Task<ActionResult<CollectionResult<ContactDto>>> GetAllContacts()
     {
@@ -28,6 +30,7 @@ public class ContactController : ControllerBase
         return BadRequest(result);
     }
 
+    [Authorize(Roles = $"{nameof(Roles.Sales)}")]
     [HttpGet("lead")]
     public async Task<ActionResult<CollectionResult<ContactDto>>> GetAllLeadContacts()
     {
@@ -39,6 +42,7 @@ public class ContactController : ControllerBase
         return BadRequest(result);
     }
 
+    [Authorize(Roles = $" {nameof(Roles.Marketing)}")]
     [HttpPost]
     public async Task<ActionResult<BaseResult<ContactDto>>> CreateContact(ContactCreateDto contactCreateDto)
     {
@@ -50,6 +54,7 @@ public class ContactController : ControllerBase
         return BadRequest(result);
     }
 
+    [Authorize(Roles = $"{nameof(Roles.Sales)}, {nameof(Roles.Marketing)}")]
     [HttpPut]
     public async Task<ActionResult<BaseResult<ContactDto>>> UpdateContact([FromQuery] ContactUpdateDto updateContactDto)
     {
@@ -61,6 +66,7 @@ public class ContactController : ControllerBase
         return BadRequest(result);
     }
 
+    [Authorize(Roles = $"{nameof(Roles.Marketing)}")]
     [HttpPatch("{contactId}/status")]
     public async Task<ActionResult<BaseResult<ContactDto>>> ChangeContactStatus(int contactId, ContactStatus status)
     {

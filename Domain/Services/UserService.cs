@@ -220,6 +220,8 @@ public class UserService : IUserService
             }
 
             user.DateOfBlocking = DateTime.Now;
+             await _userRepository.UpdateAsync(user);
+
             return new BaseResult<UserDto>()
             {
                 Data = _mapper.Map<UserDto>(user)
@@ -249,6 +251,8 @@ public class UserService : IUserService
             }
 
             user.DateOfBlocking = null;
+            await _userRepository.UpdateAsync(user);
+
             return new BaseResult<UserDto>()
             {
                 Data = _mapper.Map<UserDto>(user)
@@ -278,6 +282,8 @@ public class UserService : IUserService
             }
 
             user.Roles = role;
+            await _userRepository.UpdateAsync(user);
+
             return new BaseResult<UserDto>()
             {
                 Data = _mapper.Map<UserDto>(user)
@@ -329,6 +335,9 @@ public class UserService : IUserService
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(newPassword, salt);
 
             user.Password = hashedPassword;
+            await _userRepository.UpdateAsync(user);
+
+
             return new BaseResult<UserDto>()
             {
                 Data = _mapper.Map<UserDto>(user)

@@ -13,8 +13,12 @@ public static class DependencyInjection
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        services.AddHttpContextAccessor();
+
 
         services.AddTransient<IUserService, UserService>();
         services.AddTransient<IContactService, ContactService>();
+        services.AddTransient<ILeadService, LeadService>();
+        services.AddTransient<ISaleService, SaleService>();
     }
 }
