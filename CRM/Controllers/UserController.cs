@@ -1,5 +1,5 @@
 ﻿using DAL.Enum;
-using Domain.Dto;
+using Domain.Contracts.User;
 using Domain.Interfaces.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

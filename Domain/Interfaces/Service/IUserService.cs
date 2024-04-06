@@ -1,5 +1,6 @@
 ﻿using DAL.Enum;
-using Domain.Dto;
+using Domain.Contacts;
+using Domain.Contracts.User;
 using Domain.Result;
 
 namespace Domain.Interfaces.Service

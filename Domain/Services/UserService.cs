@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using DAL.Entity;
 using DAL.Repositories.Interfaces;
-using Domain.Dto;
+using Domain.Contacts;
 using Domain.Result;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using DAL.Enum;
 using Domain.Interfaces.Service;
+using Domain.Contracts.User;
 
 namespace Domain.Services;
 
@@ -56,7 +57,7 @@ public class UserService : IUserService
                 };
             }
 
-            if (user.DateOfBlocking == null)
+            if (user.DateOfBlocking != null)
             {
                 return new BaseResult<UserDto>()
                 {
@@ -96,6 +97,7 @@ public class UserService : IUserService
 
             var user = _mapper.Map<User>(userCreateDto);
             user.Password = hashedPassword;
+            
 
             await _userRepository.CreateAsync(user);
 

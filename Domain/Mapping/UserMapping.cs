@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DAL.Entity;
-using Domain.Dto;
+using Domain.Contacts;
+using Domain.Contracts.User;
 
 namespace Domain.Mapping;
 

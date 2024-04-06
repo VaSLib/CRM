@@ -11,8 +11,10 @@ public static class DependencyInjection
     public static void AddServiceDomain(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
         services.AddTransient<IUserService, UserService>();
+        services.AddTransient<IContactService, ContactService>();
     }
 }

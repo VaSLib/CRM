@@ -1,5 +1,5 @@
 ﻿using DAL.Enum;
 
-namespace Domain.Dto;
+namespace Domain.Contacts;
 
 public record UserDto(int Id, string? FullName, string Email, Roles Roles);
